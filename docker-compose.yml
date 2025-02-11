@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  ping-service:
+    build: .
+    deploy:
+        replicas: 2
+    ports:
+      - "8080-8081:8080"
+    environment:
+      - PORT=8080
+      - ENDPOINTS=http://docker-test-ping-service-1:8080/pings,http://docker-test-ping-service-2:8080/pings
